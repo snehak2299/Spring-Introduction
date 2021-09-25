@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.bridglab.demo.component.DemoBean;
+import com.bridglab.demo.component.EmployeeBean;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -17,7 +18,15 @@ public class DemoApplication {
 		ApplicationContext context=SpringApplication.run(DemoApplication.class, args);
 		DemoBean demoBean=context.getBean(DemoBean.class);
 		logger.debug("Demo Bean= "+demoBean.toString());
+		
+		EmployeeBean employeeBean=context.getBean(EmployeeBean.class);
+		employeeBean.setEid(104);
+		employeeBean.setEname("Spring Framework Guru");
+		employeeBean.showEmployeeDetails();
+		
+		
 	}
+	
 	
 
 }
